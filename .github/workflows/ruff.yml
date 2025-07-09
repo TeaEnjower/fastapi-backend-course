@@ -27,4 +27,4 @@ jobs:
 
       - name: "Запуск Ruff"
         run: |
-          ruff check src/
+          ruff check git/src/
