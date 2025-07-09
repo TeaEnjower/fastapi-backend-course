@@ -1,4 +1,4 @@
-name: Ruff — Линтинг кода
+name: CI
 
 on:
   push:
