@@ -1,0 +1,31 @@
+name: Ruff — Линтинг кода
+
+on:
+  push:
+    branches:
+      - main
+      - task-tracker
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: "Проверка кода с помощью Ruff"
+    runs-on: ubuntu-2404-lts  
+    steps:
+      - name: "Клонирование репозитория"
+        uses: actions/checkout@v4
+
+      - name: "Установка Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: "Установка зависимостей"
+        run: |
+          pip install ruff
+
+      - name: "Запуск Ruff"
+        run: |
+          ruff check src/
